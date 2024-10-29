@@ -6,22 +6,27 @@ export const userSlice = createSlice({
     token: "",
     user: null,
     userLoading: false,
+    error: null,
   },
   reducers: {
     loginUserRequest: (state) => {
       state.userLoading = true;
+      state.error = null;
     },
     loginUserSuccess: (state, action) => {
       state.userLoading = false;
       state.token = action.payload.token;
       state.user = action.payload.user;
+      state.error = null;
     },
-    loginUserFailed: (state) => {
+    loginUserFailed: (state, action) => {
       state.userLoading = false;
+      state.error = action.payload;
     },
     logoutUser: (state) => {
       state.token = "";
       state.user = null;
+      state.error = null;
       localStorage.removeItem("token");
     },
   },

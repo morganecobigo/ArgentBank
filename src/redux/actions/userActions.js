@@ -20,7 +20,7 @@ export const loginUser = (body, dispatch) => {
       getUser(res.data.body.token, dispatch);
     })
     .catch(() => {
-      dispatch(loginUserFailed());
+      dispatch(loginUserFailed("Incorrect login or password")); // Utiliser un message d'erreur générique
     });
 };
 export const getUser = (token, dispatch) => {
@@ -38,7 +38,7 @@ export const getUser = (token, dispatch) => {
       dispatch(loginUserSuccess(payload));
     })
     .catch(() => {
-      dispatch(loginUserFailed());
+      dispatch(loginUserFailed("Incorrect login or password")); // Utiliser un message d'erreur générique
     });
 };
 export const updateUser = (token, body, onClose, dispatch) => {
@@ -53,6 +53,6 @@ export const updateUser = (token, body, onClose, dispatch) => {
       onClose();
     })
     .catch(() => {
-      dispatch(loginUserFailed());
+      dispatch(loginUserFailed("Incorrect login or password")); // Utiliser un message d'erreur générique
     });
 };

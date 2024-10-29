@@ -158,7 +158,7 @@ paths:
       tags:
         - Accounts Module
       summary: Update Transaction API
-      description: API for update a user account transactions
+      description: API for get user account transactions
       parameters:
         - in: path
           name: transactionId

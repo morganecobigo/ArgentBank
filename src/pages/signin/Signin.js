@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/actions/userActions";
 
 function Signin() {
   const dispatch = useDispatch();
+  const errorMessage = useSelector((state) => state.user.error);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+
   const onLoginUser = (e) => {
     e.preventDefault();
     const body = { email, password, rememberMe };
@@ -17,6 +19,7 @@ function Signin() {
       <section className="sign-in-content">
         <i className="fa fa-user-circle sign-in-icon"></i>
         <h1>Sign In</h1>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
         <form onSubmit={onLoginUser}>
           <div className="input-wrapper">
             <label htmlFor="username">Username</label>

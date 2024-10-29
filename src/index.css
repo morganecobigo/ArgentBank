@@ -83,7 +83,7 @@ body {
 }
 
 .hero {
-  background-image: url("./assets/image/bank-tree.jpeg");
+  background-image: url("./assets/image/bank-tree.webp");
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -189,6 +189,15 @@ body {
 .sign-in-icon {
   font-size: 5rem;
 }
+.error-message {
+  color: #ff4d4d; /* Couleur rouge pour l'erreur */
+  background-color: #ffe6e6; /* Fond léger pour la lisibilité */
+  border: 1px solid #ff4d4d; /* Bordure rouge */
+  padding: 10px; /* Espacement interne */
+  border-radius: 5px; /* Coins arrondis */
+  margin-top: 10px; /* Espacement au-dessus du message */
+  font-weight: bold; /* Texte en gras */
+}
 
 .input-remember {
   display: flex;
@@ -289,7 +298,6 @@ body {
 }
 
 .form-button {
-  width: 10%;
   padding: 10px 20px;
   margin: 0 5px;
   font-weight: bold;

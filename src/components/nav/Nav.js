@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo/argentBankLogo.png";
+import logo from "../../assets/logo/argentBankLogo.webp";
 import { logoutUser } from "../../redux/reducers/userReducer";
 
 function Nav() {
