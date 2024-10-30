@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import {
-  loginUserFailed,
+  errorUser,
   loginUserRequest,
   loginUserSuccess,
 } from "../reducers/userReducer";
@@ -20,7 +20,7 @@ export const loginUser = (body, dispatch) => {
       getUser(res.data.body.token, dispatch);
     })
     .catch(() => {
-      dispatch(loginUserFailed("Incorrect login or password"));
+      dispatch(errorUser({ message: "incorrect login or password" }));
     });
 };
 export const getUser = (token, dispatch) => {
@@ -38,7 +38,11 @@ export const getUser = (token, dispatch) => {
       dispatch(loginUserSuccess(payload));
     })
     .catch(() => {
-      dispatch(loginUserFailed("Incorrect login or password"));
+      dispatch(
+        errorUser({
+          message: "unable to recover user",
+        })
+      );
     });
 };
 export const updateUser = (token, body, onClose, dispatch) => {
@@ -53,6 +57,6 @@ export const updateUser = (token, body, onClose, dispatch) => {
       onClose();
     })
     .catch(() => {
-      dispatch(loginUserFailed("Incorrect login or password"));
+      dispatch(errorUser({ message: "update failed" }));
     });
 };

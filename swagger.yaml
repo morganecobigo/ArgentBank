@@ -157,8 +157,8 @@ paths:
         - Bearer: []
       tags:
         - Accounts Module
-      summary: Update Transaction API
-      description: API for get user account transactions
+      summary: User Account Transaction API
+      description: API for get user account transaction
       parameters:
         - in: path
           name: transactionId
